@@ -1,8 +1,8 @@
 import "../index.css";
 import { useEffect, useState } from "react";
 import axios from "../utils/axios";
-import { Link, useParams } from "react-router-dom";
-import { Pokemon, PokemonType } from "../types/PokemonTypes";
+import { useParams } from "react-router-dom";
+import { Pokemon } from "../types/PokemonTypes";
 import {
   Box,
   LinearProgress,
@@ -11,7 +11,6 @@ import {
   CircularProgress,
   Stack,
   Divider,
-  ButtonBase,
 } from "@mui/material";
 import Page404 from "./Page404";
 
@@ -56,29 +55,12 @@ function PokePage() {
     };
   }, [id]);
 
-  // useEffect(() => {
-  //   first
-
-  //   return () => {
-  //     second
-  //   }
-  // }, [third])
-
   const handleClick = () => {
     window.location.href = `/`;
   };
 
   return (
     <>
-      {/* {error && <Page404 />} */}
-      {/* {!data && (
-        <>
-          <p>Sorry, no poke</p>
-          <Button variant="contained" onClick={handleClick}>
-            Back to homepage
-          </Button>
-        </>
-      )} */}
       {test && (
         <>
           <h1>Something wrong happened</h1>

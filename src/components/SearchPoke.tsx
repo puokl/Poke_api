@@ -33,8 +33,6 @@ function SearchPoke() {
   const [inputValue, setInputValue] = useState<string>("");
   const [fetchedData, setFetchedData] =
     useState<AxiosResponse<PokeAPIResponseType>>();
-  // const [matchingNames, setMatchingNames] = useState<Poke[]>([]);
-  const [selectedName, setSelectedName] = useState("");
   const [pokeImage, setPokeImage] = useState<PokeImg[]>([]);
 
   useEffect(() => {
@@ -135,10 +133,6 @@ function SearchPoke() {
                   button
                   style={{
                     height: 55,
-                    // display: "flex",
-                    // width: "200px",
-                    // alignItems: "center",
-                    // justifyContent: "space-between",
                   }}
                 >
                   <ListItemText primary={poke.name} />

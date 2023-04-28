@@ -1,3 +1,5 @@
+// Types imported from https://pokenode-ts.vercel.app/
+
 export interface Pokemon {
   /** The identifier for this resource */
   id: number;
