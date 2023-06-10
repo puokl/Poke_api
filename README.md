@@ -1,4 +1,7 @@
 # PokeApi
-## An excercise fetching data from pokeapi.co using React, Typescript and MUI
+## An excercise fetching data from pokeapi.co 
+- React
+- Typescript
+- MUI
 
-https://pokeapi-puokl.vercel.app/
+DEMO: https://pokeapi-puokl.vercel.app/
