@@ -40,19 +40,16 @@ function SearchPoke() {
       try {
         const response = await axios.get("/pokemon/?limit=1000&offset=0");
         setFetchedData(response);
-        console.log("fetchedData", fetchedData);
       } catch (error: any) {
         console.log(error);
       }
     }
     fetchData();
-    console.log("fetchedData", fetchedData);
   }, []);
 
   const fetchMatchingNames = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     console.log("e.target.value", e.target.value);
-    //  if (e.target.value !== "" && fetchedData) {
     if (e.target.value !== "") {
       const filteredNames: Poke[] =
         fetchedData?.data.results.filter((name: Poke) =>
@@ -77,7 +74,6 @@ function SearchPoke() {
         console.log(error);
       }
     }
-    // setPokeImage(...pokeImg, pokeImg);
     setPokeImage([...pokeImg]);
   };
 
@@ -99,9 +95,7 @@ function SearchPoke() {
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
         <Box component="img" src="../../public/pokemon_logo.svg" />
-
         <Typography variant="h4">Discover the Pokemon world</Typography>
-
         <Box
           style={{
             height: 300,
@@ -115,16 +109,16 @@ function SearchPoke() {
           <Box>
             <Typography>Chose your pokemon:</Typography>
             <TextField
-              // label="Search Pokemon"
               variant="filled"
               onChange={fetchMatchingNames}
               value={inputValue}
+              style={{ width: 300 }}
             />
           </Box>
           <List
             style={{
               maxHeight: 300,
-              maxWidth: 200,
+              maxWidth: 300,
             }}
           >
             {pokeImage.map((poke: PokeImg, index: number) => (
@@ -140,15 +134,18 @@ function SearchPoke() {
                     src={poke.urlImg}
                     alt={poke.name}
                     style={{ marginLeft: "auto" }}
+                    height={70}
                   />
                 </ListItem>
               </Link>
             ))}
           </List>
         </Box>
-        <Button variant="contained" onClick={handleClick}>
-          Generate a random Pokemon
-        </Button>
+        <Box sx={{ mt: 10 }}>
+          <Button variant="contained" onClick={handleClick}>
+            Generate a random Pokemon
+          </Button>
+        </Box>
       </Box>
     </>
   );

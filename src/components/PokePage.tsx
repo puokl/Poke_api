@@ -16,15 +16,11 @@ import Page404 from "./Page404";
 
 function PokePage() {
   const { id } = useParams();
-
   const [data, setData] = useState<Pokemon | undefined>();
   const [test, setTest] = useState(false);
   const [loading, setloading] = useState(false);
-  // const [error, setError] = useState<boolean>(!id);
-  // const [isBusy, setBusy] = useState(true);
 
   useEffect(() => {
-    // setBusy(true);
     setloading(true);
     console.log("running useEffecctg");
     let controller = new AbortController();
@@ -32,15 +28,13 @@ function PokePage() {
     async function fetchData() {
       try {
         const response = await axios.get(`/pokemon/${id}`, { signal });
-        console.log("response.status", response.status);
         if (response.status === 200) {
           setData(response.data);
           setloading(false);
         }
-        console.log("response", response.data);
       } catch (error: any) {
         console.log(error);
-        // setError(true);
+
         if (error.name === "AxiosError") {
           console.log("response.status", error.name);
           setTest(true);
@@ -208,8 +202,9 @@ function PokePage() {
                           width: "150px",
                           height: "25px",
                           margin: "5px",
+                          cursor: "default",
                           "&:hover": {
-                            backgroundColor: "#6a994e",
+                            bgcolor: "#6a994e",
                           },
                         }}
                       >
@@ -219,11 +214,6 @@ function PokePage() {
                   </Stack>
                 </Stack>
                 <Stack>
-                  {/* {console.log(
-                    "abilities",
-                    data?.abilities.map((item) => item.ability.name)
-                  )}
-                  {console.log("abilities", data?.abilities)} */}
                   <Stack sx={{ alignItems: "center" }}>
                     <Typography
                       sx={{
@@ -244,8 +234,9 @@ function PokePage() {
                           width: "150px",
                           height: "25px",
                           margin: "5px",
+                          cursor: "default",
                           "&:hover": {
-                            backgroundColor: "#a7c957",
+                            bgcolor: "#a7c957",
                           },
                         }}
                       >
