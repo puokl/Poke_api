@@ -94,7 +94,7 @@ function SearchPoke() {
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
-        <Box component="img" src="../../public/pokemon_logo.svg" />
+        <Box component="img" src="../../public/pngegg.png" maxHeight={170} />
         <Typography variant="h4">Discover the Pokemon world</Typography>
         <Box
           style={{
